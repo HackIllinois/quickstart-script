@@ -30,7 +30,7 @@ app.get('/', function (req, res) {
         var counting = [0, 0, 0, 0, 0, 0];
         for (var i = 0; i < arr.length; i++)
         {
-            counting[arr[i].s]++;
+            counting[arr[i].s - 1]++;
             console.log(arr[i].selection);
             console.log(arr[i].appName);
         }
