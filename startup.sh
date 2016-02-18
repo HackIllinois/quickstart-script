@@ -61,7 +61,6 @@ if [ "${sysName}" == "Darwin" ]; then
         rake db:create
         echo "${blue}Your project is now ready! Type in ${bold}rails server${normal} to start your server.${normal}"
         echo "${blue}You can then visit ${bold}http://localhost:3000${normal}${blue} to view your new website.${normal}"
-		fi
 	elif [ "${choice}" == "3" ]; then
 		echo "${bold}NOTE:${normal} The Python 2.X version of Django will be installed"
 		sudo easy_install pip
@@ -98,7 +97,7 @@ if __name__ == '__main__':
         open "/Applications/Arduino.app"
         echo "${blue}The Arduino IDE is now installed! Run it from the Applications folder!${normal}"
 	fi
-else
+else 
 	curl_check=$(which curl)
 	#Install curl if not installed
 	if [ "${curl_check}" == "" ]; then
