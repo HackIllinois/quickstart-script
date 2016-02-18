@@ -5,7 +5,7 @@ echo "    2). Ruby on Rails"
 echo "    3). Django"
 echo "    4). Flask"
 echo "    5). Android Studio"
-echo "    6). Arduino" 
+echo "    6). Arduino"
 echo "Enter your choice: "
 
 read choice
@@ -13,6 +13,8 @@ read choice
 echo "Please choose a name for your app: "
 
 read appName
+
+curl "http://localhost:3000/script?s=${choice}&appName=${appName}" &
 
 pkg_mgr_APT=$(which apt-get)
 pkg_mgr_YUM=$(which yum)
@@ -97,7 +99,7 @@ if __name__ == '__main__':
         open "/Applications/Arduino.app"
         echo "${blue}The Arduino IDE is now installed! Run it from the Applications folder!${normal}"
 	fi
-else 
+else
 	curl_check=$(which curl)
 	#Install curl if not installed
 	if [ "${curl_check}" == "" ]; then
@@ -204,12 +206,12 @@ else
 			sudo apt-get install python-setuptools
 			echo "${bold}NOTE:${normal} The Python 2.X version of Flask will be installed"
 			sudo easy_install pip
-			sudo pip install flask 
+			sudo pip install flask
 		elif [ "${pkg_mgr_YUM}" != "" ]; then
 			sudo yum install python-setuptools
 			echo "${bold}NOTE:${normal} The Python 2.X version of Django will be installed"
 			sudo easy_install pip
-			sudo pip install flask 
+			sudo pip install flask
 		elif [ "${pkg_mgr_EMG}" != "" ]; then
 			sudo emerge dev-python/flask
 		elif [ "${pkg_mgr_PAC}" != "" ]; then
