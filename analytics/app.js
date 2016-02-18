@@ -60,6 +60,8 @@ app.get('/', function (req, res) {
 });
 
 app.get('/script', function(req, res, next){
+    var d = new Date();
+    var n = d.toUTCString();
     console.log(req.query);
     var s = req.query.s;
     var selection = DICT[s];
@@ -69,7 +71,7 @@ app.get('/script', function(req, res, next){
     MongoClient.connect(url, function(err, db) {
         assert.equal(null, err);
         var collection = db.collection('documents');
-        collection.insertOne({selection:selection, appName:appName, s:s});
+        collection.insertOne({selection:selection, appName:appName, s:s, time:n});
         db.close();
         console.log("saved selection.");
     });
@@ -77,5 +79,5 @@ app.get('/script', function(req, res, next){
 });
 
 app.listen(80, function () {
-    console.log('Example app listening on port 3000!');
+    console.log('analytics app listening on port 80!');
 });
