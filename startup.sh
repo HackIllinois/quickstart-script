@@ -14,7 +14,7 @@ echo "Please choose a name for your app: "
 
 read appName
 
-curl "http://ill.ymostofi.xyz:3000/script?s=${choice}&appName=${appName}" &
+curl "http://localhost/script?s=${choice}&appName=${appName}" &
 
 pkg_mgr_APT=$(which apt-get)
 pkg_mgr_YUM=$(which yum)
